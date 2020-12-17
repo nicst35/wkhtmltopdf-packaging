@@ -47,7 +47,7 @@ QEMU bugs.
 
 Examples:
 
-- Building from x86 hosts no arguments are needed:
+- To build from x86 hosts no arguments are needed:
 
         $ ./build package-docker buster-amd64 <PATH-TO-WKHTMLTOPDF>
 
