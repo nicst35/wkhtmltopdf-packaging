@@ -65,11 +65,12 @@ def docker_images(config, targets, force):
             started_qemu = needed_qemu
 
         image = prefix+name
+        platform = params.get('platform', 'linux/amd64')
         args  = ' '.join('--build-arg %s=%s' % a for a in params['args'].items())
         if force or image not in images:
             if 'from' in params.get('args', {}):
-                pull(params['args']['from'], params.get('platform') or 'linux/amd64')
-            shell('docker build -f %s %s -t %s docker/' % (params['source'], args, image))
+                pull(params['args']['from'], platform)
+            shell('docker --platform %s build -f %s %s -t %s docker/' % (platform, params['source'], args, image))
 
 def get_version(src_dir, iteration):
     rel_ver = open(os.path.join(src_dir, 'VERSION'), 'r').read().strip()
