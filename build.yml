@@ -67,6 +67,7 @@ docker-targets:
     output: deb
     qemu:   linux/386 # see https://github.com/RPi-Distro/pi-gen/issues/271
     arch:   armhf
+    platform: linux/arm/v5
     depend: >
       ca-certificates
       fontconfig
@@ -91,6 +92,7 @@ docker-targets:
     output: deb
     qemu:   linux/amd64
     arch:   armhf
+    platform: linux/arm/v5
     depend: >
       ca-certificates
       fontconfig
@@ -230,6 +232,7 @@ docker-targets:
       from: centos:6
     output: rpm
     arch:   x86_64
+    platform: linux/amd64
     depend: >
       ca-certificates
       fontconfig
@@ -314,6 +317,7 @@ docker-targets:
     output: lambda_zip
     after_compile: amazonlinux2_lambda
     arch: x86_64
+    platform: linux/amd64
 
   opensuse.leap15:
     source: docker/Dockerfile.opensuse
